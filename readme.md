@@ -1,5 +1,10 @@
-# Three.js Multi-Scene Framework
-This project gives you a starting ground for a `multi-scene` project with three.js.
+# Project M4NG0 - A Three.js Framework
+This project gives you a starting ground for a `multi-scene` project with three.js, webpack and GSAP.
+
+![portal image](mango.jpg)
+[Photo shameless taken from images.indianexpress.com]
+
+Embrace the Mango:
 - Clean reusable project structure
 - Assets management is greatly simplified. Models and textures are loaded asynchronously and can be shared between scenes
 - One renderer, and one full-screen canvas
