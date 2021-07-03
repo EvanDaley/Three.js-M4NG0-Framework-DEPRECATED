@@ -20,36 +20,37 @@ Optional advanced features:
 See the live demo here: [TODO]
 
 ## But there are other Three.js project templates! Why use this one?
-M4NG0 is relatively small and unopinionated. It doesn't come with a lot of bells and whistles, but gives you the basics to build multi-scene three.js sites with animated html overlays (like the demo! ^). If you want to add physics, just import another npm package (I suggest ammo-physics). If you're looking for a full game engine, this isn't it!
+M4NG0 is relatively small and opinionated. It doesn't come with a lot of bells and whistles, but gives you the basics to build multi-scene three.js sites with animated html overlays (like the demo! ^). If you need to add physics, import ammo-physics with npm. If you're looking for a full game engine, this isn't it!
 
 ### Project Structure
 Okay, lets dive in. I've got a detailed "first steps" section below - but I suggest studying this section first to understand the basics of the project.
 
 Heres what you need to know:
 
-On page load, we create an instance of `Orchestrator`. Orchestrator keeps track of scroll events, and helps us transition between our scenes. It also initializes the `World` class, the `AssetLoader`, and all of your custom scenes.
+On page load, we create an instance of `Orchestrator`. Orchestrator keeps track of events, and helps us transition between our scenes. 
 
-Then it calls the async `init` function on `AssetLoader` to begin pulling the static assets like 3d models and textures. 
+As soon as its ready, Orchestrator calls the async function `AssetLoader.init()` to begin pulling the static assets like 3d models and textures. This will ONLY pull assets that are referenced by Prefabs. Prefabs are the glue that connects art with code. Every asset must be defined as a prefab to exist in a scene.
 
-Once everything has finished loading in the background, `Orchestrator` will call the async function `init` on the first scene. 
+Once everything has finished loading in the background, `Orchestrator` will call the async function `start` on the first scene.
+
+Scenes are defined by you! All scenes must extend the base class M4Scene. More on that later.
 
 ### Classes of note
-Orchestrator - Creates everything. Manages your scenes.
+Orchestrator - Creates everything. Manages your scenes. Keeps track of events.
 AssetLoader - Loads all your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
-
+M4Scene - Acts as the basic building block for your custom scenes. Should be extended for your own scenes.
 
 ### Assets
 If you have any models or textures to load, put them in 
 - `./static/models`
 - `./static/textures`
 
-All assets in those folders will be loaded asynchronously on page load by the AssetLoader class.
+Assets in those folders will be loaded asynchronously on page load by the AssetLoader class. Note that we only load assets that are referened by prefabs!
 
 ### Prefabs
-TODO: Document this.
+Prefabs are custom classes that define the form and function of an object. They specify which assets to pull and how those assets should behave in the scene. Everything is a prefab. 
 
-### Scenes
-TODO: Document this.
+Now that we've covered the basics, lets work toward making some modifications.
 
 ## First Steps - Setup
 Clone this project.
@@ -70,7 +71,13 @@ At this point, a lite-server should be serving the project locally on port 8080.
 While the server is running, code will immediately be reflected in the browser.
 
 ## First Steps - Development
-TODO - Fill this out.
+TODO - Make an update to a scene. Swap out an object.
+
+TODO - Talk about building scenes.
+
+TODO - Make a new scene.
+
+Alright - now we've made some changes. Let's build a deployable package and push it to a server.
 
 ## Deployment
 To build a deployable package:

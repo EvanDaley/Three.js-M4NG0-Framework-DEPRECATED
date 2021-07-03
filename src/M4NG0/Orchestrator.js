@@ -4,13 +4,14 @@
 */
 
 class Orchestrator {
-    constructor(targetElement) {
-        this.canvas = targetElement
-      }
+  constructor(targetElement) {
+    this.canvas = targetElement
 
-    init() {
+  }
 
-    }
+  init() {
+
+  }
 }
 
 export { Orchestrator }
