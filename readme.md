@@ -19,8 +19,8 @@ Optional advanced features:
 ## Live Demo
 See the live demo here: [TODO]
 
-## But there are other Three.js project templates! Why use this one?
-M4NG0 is relatively small and opinionated. It doesn't come with a lot of bells and whistles, but gives you the basics to build multi-scene three.js sites with animated html overlays (like the demo! ^). If you need to add physics, import ammo-physics with npm. If you're looking for a full game engine, this isn't it!
+## How is this different from other frameworks?
+M4NG0 is small and opinionated. It doesn't come with a lot of bells and whistles, but gives you the basics to build multi-scene three.js sites with animated html overlays (like the demo! ^). If you need to add physics, import ammo-physics with npm. If you're looking for a full game engine, this isn't it!
 
 ### Project Structure
 [ TODO: Turn this into "Lifecyle" and move it down below everything else ]
