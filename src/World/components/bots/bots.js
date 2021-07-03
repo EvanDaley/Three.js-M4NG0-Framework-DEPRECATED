@@ -6,7 +6,7 @@ async function loadBots() {
   const loader = new GLTFLoader();
 
   const [chadData] = await Promise.all([
-    loader.loadAsync('models/Bot.glb'),
+    loader.loadAsync('models/Robot.glb'),
   ]);
 
   console.log('Squaaawk!', chadData)

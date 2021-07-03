@@ -10,7 +10,8 @@ class CustomScene1 extends M4Sc {
     super();
   }
 
-  blueprint() {
+  // Here we specify which prefabs we'll use.
+  prefabs() {
     return {
 
     }
