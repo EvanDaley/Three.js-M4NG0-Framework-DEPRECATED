@@ -1,6 +1,7 @@
 import './style.css'
 import { World } from './World/World.js';
 import { gsap, ScrollTrigger, CSSRulePlugin } from "gsap/all";
+import throttle from "lodash.throttle" 
 
 async function main() {
   await initThreeJSWorld()
@@ -21,14 +22,14 @@ async function initThreeJSWorld() {
 async function initContentAnimations() {
   gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 
-  const content = CSSRulePlugin.getRule('.html-content:before')
+  const content = CSSRulePlugin.getRule('.scene-one-content:before')
   const h1 = document.querySelector('h1')
-  const p = document.querySelector('p')
+  const subheading = document.querySelector('.subheading')
   const tl = gsap.timeline()
 
   tl.from(content, { delay: .5, duration: 4, cssRule: { scaleX: 0 } })
   tl.to(h1, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '30px' }, "-=3")
-  tl.to(p, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '30px' }, "-=2")
+  tl.to(subheading, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '30px' }, "-=2")
 }
 
 // Run main and display any async errors from the world.init() function.

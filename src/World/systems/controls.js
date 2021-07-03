@@ -1,11 +1,11 @@
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 function createControls(camera, canvas) {
-  const controls = new OrbitControls(camera, canvas);
+  const controls = new OrbitControls(camera, canvas)
 
-  controls.enableDamping = true;
+  controls.enableDamping = true
+  controls.zoomSpeed = .03
 
-  // forward controls.update to our custom .tick method
   controls.tick = () => {
     controls.update()
   }
@@ -13,4 +13,4 @@ function createControls(camera, canvas) {
   return controls;
 }
 
-export { createControls };
+export { createControls }

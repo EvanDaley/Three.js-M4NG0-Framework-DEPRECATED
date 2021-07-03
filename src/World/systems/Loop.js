@@ -3,9 +3,8 @@ import { Clock } from 'three';
 const clock = new Clock();
 
 class Loop {
-  constructor(camera, scene, renderer) {
-    this.camera = camera;
-    this.scene = scene;
+  constructor(world, renderer) {
+    this.world = world;
     this.renderer = renderer;
     this.updatables = [];
 
@@ -42,7 +41,7 @@ class Loop {
     this.renderer.setAnimationLoop(() => {
       this.tick();
 
-      this.renderer.render(this.scene, this.camera);
+      this.world.render()
     });
   }
 

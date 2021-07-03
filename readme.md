@@ -1,13 +1,13 @@
 # Project M4NG0 - A Three.js Framework
-This project gives you a starting ground for a `multi-scene` project with three.js, webpack and GSAP.
+### This project gives you a starting ground for a `multi-scene` project with three.js, webpack and GSAP.
 
 ![portal image](mango.jpg)
 [Photo shameless taken from images.indianexpress.com]
 
 Embrace the Mango:
-- Clean reusable project structure
-- Assets management is greatly simplified. Models and textures are loaded asynchronously and can be shared between scenes
-- One renderer, and one full-screen canvas
+- M4NG0'S clean and reusable structure makes starting new 3d projects a breeze
+- Asset management is greatly simplified. Models and textures are loaded asynchronously and can be shared between scenes
+- One reusable renderer, and one full-screen canvas
 - Helper methods make it easy to create scenes and swap between them
 - Webpack configuration makes it easy to build for production
 
@@ -20,11 +20,11 @@ Optional advanced features:
 See the live demo here: [TODO]
 
 ## Setup
-Clone this project. To avoid issues, we recommend copying all the project files except `.git/` into your own seperate folder.
+Clone this project. To avoid git issues, we recommend copying all the project files except `.git/` into your own seperate folder when creating new projects.
 
 `cd` into that project.
 
-Run this followed commands:
+Run following commands:
 
 ``` bash
 # Install dependencies (only the first time)
