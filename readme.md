@@ -1,16 +1,16 @@
 # Three.js Multi-Scene Framework
 This project gives you a starting ground for a `multi-scene` project with three.js.
 
-- clean reusable project structure can be used for portfolio sites or games
-- assets management is greatly simplified. Models and textures are loaded asynchronously and can be shared between scenes
-- one renderer, and one full-screen canvas
-- helper methods make it easy to create scenes and swap between them
+- Clean reusable project structure. Easily adaptable for websites, portfolio projects, or games
+- Assets management is greatly simplified. Models and textures are loaded asynchronously and can be shared between scenes
+- One renderer, and one full-screen canvas
+- Helper methods make it easy to create scenes and swap between them
 - Webpack configuration makes it easy to build for production
 
 Optional advanced features:
-- deploy to github pages with one npm command
-- use GSAP to animate complex HTML overlays
-- customize the loading screen
+- Deploy to github pages with one npm command
+- Use GSAP to animate complex HTML overlays
+- Customize the loading screen
 
 ## Live Demo
 See the live demo here: [TODO]
