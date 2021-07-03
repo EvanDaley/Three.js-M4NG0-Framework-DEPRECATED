@@ -19,10 +19,42 @@ Optional advanced features:
 ## Live Demo
 See the live demo here: [TODO]
 
-## Setup
-Clone this project. To avoid git issues, we recommend copying all the project files except `.git/` into your own seperate folder when creating new projects.
+## But there are other Three.js project templates! Why use this one?
+M4NG0 is relatively small and unopinionated. It doesn't come with a lot of bells and whistles, but gives you the basics to build multi-scene three.js sites with animated html overlays (like the demo! ^). If you want to add physics, just import another npm package (I suggest ammo-physics). If you're looking for a full game engine, this isn't it!
 
-`cd` into that project.
+### Project Structure
+Okay, lets dive in. I've got a detailed "first steps" section below - but I suggest studying this section first to understand the basics of the project.
+
+Heres what you need to know:
+
+On page load, we create an instance of `Orchestrator`. Orchestrator keeps track of scroll events, and helps us transition between our scenes. It also initializes the `World` class, the `AssetLoader`, and all of your custom scenes.
+
+Then it calls the async `init` function on `AssetLoader` to begin pulling the static assets like 3d models and textures. 
+
+Once everything has finished loading in the background, `Orchestrator` will call the async function `init` on the first scene. 
+
+### Classes of note
+Orchestrator - Creates everything. Manages your scenes.
+AssetLoader - Loads all your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
+
+
+### Assets
+If you have any models or textures to load, put them in 
+- `./static/models`
+- `./static/textures`
+
+All assets in those folders will be loaded asynchronously on page load by the AssetLoader class.
+
+### Prefabs
+TODO: Document this.
+
+### Scenes
+TODO: Document this.
+
+## First Steps - Setup
+Clone this project.
+
+`cd` into that folder.
 
 Run following commands:
 
@@ -32,25 +64,13 @@ npm install
 
 # Run the local server at localhost:8080
 npm run dev
-
-# Build for production in the dist/ directory
-npm run build
 ```
+At this point, a lite-server should be serving the project locally on port 8080.
 
-## Development
+While the server is running, code will immediately be reflected in the browser.
 
-# Assets
-If you have any models or textures to load, put them in 
-- `./static/models`
-- `./static/textures`
-
-All assets in those folders will be loaded asynchronously after page load by the AssetLoader class.
-
-# Prefabs
-TODO: Document this.
-
-# Scenes
-TODO: Document this.
+## First Steps - Development
+TODO - Fill this out.
 
 ## Deployment
 To build a deployable package:
@@ -68,3 +88,9 @@ Deploy to github pages with:
 npm run deploy
 ```
 Then, on github, go into your repo settings->pages and choose `gh-pages` as the branch (and save!).
+
+## FAQ
+#### How do I add M4NG0 to an existing project?
+This is doable, but a bit of work.
+- Bring over the whole src folder, static folder, and webpack config.
+- Then add a canvas to your html with the id: `m4ng0-canvas`.

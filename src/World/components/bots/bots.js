@@ -9,15 +9,15 @@ async function loadBots() {
       loader.loadAsync('models/Chad.glb'),
     ]);
   
-    console.log('Squaaawk!', chadData);
+    console.log('Squaaawk!', chadData)
   
-    const chad = setupModel(chadData);
+    const chad = setupModel(chadData)
     
-    chad.position.set(0, 0, 2.5);
+    chad.position.set(0, 0, 2.5)
 
     return {
       chad,
     };
   }
 
-export { loadBots };
+export { loadBots }

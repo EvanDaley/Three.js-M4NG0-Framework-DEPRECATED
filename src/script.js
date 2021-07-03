@@ -1,15 +1,18 @@
 import './style.css'
 import { World } from './World/World.js';
 import { gsap, ScrollTrigger, CSSRulePlugin } from "gsap/all";
-import throttle from "lodash.throttle" 
+import { Orchestrator } from './M4NG0/Orchestrator';
 
 async function main() {
+  // const orchestrator = new Orchestrator()
+
   await initThreeJSWorld()
   await initContentAnimations()
 }
 
 async function initThreeJSWorld() {
-  const container = document.querySelector('#webgl-scene-container');
+  const container = document.querySelector('#m4ng0-canvas-container');
+  const canvas = document.querySelector('#m4ng0-canvas');
   const world = new World(container);
 
   // call any async functions
