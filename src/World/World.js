@@ -9,14 +9,12 @@ import { createControls } from './systems/controls.js';
 import { createRenderer } from './systems/renderer.js';
 import { Resizer } from './systems/Resizer.js';
 import { Loop } from './systems/Loop.js';
-import { Vector3 } from 'three';
 
 let camera
 let renderer
 let scene
 let loop
 let controls
-let ground
 let container
 let resizer 
 
@@ -53,8 +51,9 @@ class World {
     );
   }
 
+  // TODO: Make this a child method on the Act
   createSceneObjects() {
-    ground = createGround()
+    // ground = createGround()
 
     // scene.add(
     //   ground
