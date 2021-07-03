@@ -1,5 +1,5 @@
 # Project M4NG0 - A Three.js Framework
-### This project gives you a starting ground for a `multi-scene` project with three.js, webpack and GSAP.
+#### This project gives you a starting ground for a `multi-scene` project with three.js, webpack and GSAP.
 
 ![portal image](mango.jpg)
 [Photo shameless taken from images.indianexpress.com]
@@ -23,6 +23,7 @@ See the live demo here: [TODO]
 M4NG0 is relatively small and opinionated. It doesn't come with a lot of bells and whistles, but gives you the basics to build multi-scene three.js sites with animated html overlays (like the demo! ^). If you need to add physics, import ammo-physics with npm. If you're looking for a full game engine, this isn't it!
 
 ### Project Structure
+[ TODO: Turn this into "Lifecyle" and move it down below everything else ]
 Okay, lets dive in. I've got a detailed "first steps" section below - but I suggest studying this section first to understand the basics of the project.
 
 Heres what you need to know:
@@ -37,7 +38,9 @@ Scenes are defined by you! All scenes must extend the base class M4Scene. More o
 
 ### Classes of note
 Orchestrator - Creates everything. Manages your scenes. Keeps track of events.
+
 AssetLoader - Loads all your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
+
 M4Scene - Acts as the basic building block for your custom scenes. Should be extended for your own scenes.
 
 ### Assets
