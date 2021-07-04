@@ -3,15 +3,15 @@
   Our first prefab! Here we declare the assets to import, and the tick() behavior for our model.
 */
 
-class CustomScene1 extends M4Sc {
-  constructor() {
-    super();
+import { M4Prefab } from "../M4NG0/Objects/M4Prefab";
+
+class Robot extends M4Prefab {
+  setupModel() {
+    
   }
 
-  blueprint() {
-    return {
+  tick() {
 
-    }
   }
 
   start() {
@@ -19,4 +19,4 @@ class CustomScene1 extends M4Sc {
   }
 }
 
-export { CustomScene1 };
+export { Robot };

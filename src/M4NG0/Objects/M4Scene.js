@@ -5,10 +5,13 @@
 */
 
 import { Scene } from 'three';
+import { cameraFromFactory } from '../M4NG0/SimpleFactories/perspectiveCamera.js';
 
 class M4Scene extends Scene {
     constructor() {
         super();
+
+        this.createCamera()
     }
 
     /*
@@ -27,6 +30,11 @@ class M4Scene extends Scene {
       //     }
       //   ]
       // }
+    }
+
+    // Override this to put your camera in a different spot.
+    createCamera() {
+      this.camera = cameraFromFactory()
     }
 
     start() {

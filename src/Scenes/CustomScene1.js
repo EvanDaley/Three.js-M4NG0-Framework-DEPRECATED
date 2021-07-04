@@ -6,6 +6,7 @@
 */
 
 import { M4Scene } from "../M4NG0/Objects/M4Scene";
+import { Robot } from "../Prefabs/Robot";
 
 class CustomScene1 extends M4Scene {
   // constructor() {
@@ -14,14 +15,23 @@ class CustomScene1 extends M4Scene {
 
   // Here we specify which prefabs we'll use.
   prefabs() {
-    return {
+    const robot = new Robot()
 
+    return {
     }
   }
 
+  createCamera() {
+    console.log("HERE2")
+  }
+
   start() {
+    // For now, lets hardcode a bunch of stuff in here to get this going.
+    // We'll pull everything out and put it in the correct locations later.
+
+
 
   }
 }
 
-export default { CustomScene1 };
+export default new CustomScene1();

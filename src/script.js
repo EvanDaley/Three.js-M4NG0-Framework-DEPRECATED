@@ -7,7 +7,7 @@ async function main() {
   const orchestrator = new Orchestrator()
   await orchestrator.init()
 
-  await initThreeJSWorld()
+  // await initThreeJSWorld()
   await initContentAnimations()
 }
 
