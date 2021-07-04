@@ -13,7 +13,7 @@ html, body {
     height: 100vh;
 }
 
-#webgl-scene-container {
+#m4ng0-canvas-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -32,7 +32,7 @@ html, body {
     place-content: center;
 }
 
-.html-content {
+.scene-one-content {
     display: flex;
     gap: 5em;
     width: 100%;
@@ -40,7 +40,7 @@ html, body {
     position: relative;
 }
 
-.html-content::before {
+.scene-one-content::before {
     content: '';
     position: absolute;
     top: 0;
@@ -57,15 +57,46 @@ h1 {
     text-align: right;
 }
 
-h1, p {
+h1, .subheading {
+    /* pointer-events: visiblePainted; */
     flex-basis: 0;
     flex-grow: 1;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 
-p {
+.subheading {
+    /* padding: 10px; */
     font-size: 1.4rem;
     width: 40vw;
+}
+
+.progress {
+    margin-top: 10px;
+    width: 90%;
+    height: 16px;
+    background: none;
+    border-style: solid;
+    border-radius: 3px;
+    border-width: thin;
+    border-color: white;
+    overflow: hidden;
+}
+
+.progress .progress-bar {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #ffd33d, #ea4aaa 17%, #b34bff 34%, #01feff 51%, #ffd33d 68%, #ea4aaa 85%, #b34bff);
+    background-size: 300% 100%;
+    animation: progress-animation 2s linear infinite;
+}
+
+@keyframes progress-animation {
+    0% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: 0;
+    }
 }
 
 /*# sourceMappingURL=main.css.map*/
