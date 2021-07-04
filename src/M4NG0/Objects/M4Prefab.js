@@ -4,22 +4,31 @@
   Extend this class for your own custom scenes.
 */
 
-import { Object3D } from 'three';
+import { Group } from 'three'
 
-class M4Prefab extends Object3D {
-    constructor() {
-        super();
-    }
+class M4Prefab extends Group {
+  constructor() {
+    super()
+  }
 
-    tick() {
-      
-    }
+  // Once the asset has loaded, grab the pieces we want from the data.
+  processImportData(data) {
+    const model = data.scene.children[0];
+  
+    return model;
+  }
 
-    start() {
-      
-    }
+  importAssets() { return null }
+
+  tick() {
+
+  }
+
+  start() {
+
+  }
 }
 
-M4Prefab.prototype.isM4Prefab = true;
+M4Prefab.prototype.isM4Prefab = true
 
-export { M4Prefab };
+export { M4Prefab }

@@ -25,7 +25,7 @@ class M4Scene extends Scene {
       return {}
     }
 
-    // Override this to put your camera in a different spot.
+    // If you want different camera settings, override this or modify this.camera directly.
     createCamera() {
       return createCamera()
     }

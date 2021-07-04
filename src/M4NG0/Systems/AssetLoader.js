@@ -3,12 +3,13 @@
 */
 
 class AssetLoader {
-    constructor() {
-    }
+  constructor(orchestrator) {
+    this.orchestrator = orchestrator
+  }
 
-    async init() {
-
-    }
+  async loadStaticAssets() {
+    const prefabList = ''
+  }
 }
 
-export { AssetLoader };
+export { AssetLoader }

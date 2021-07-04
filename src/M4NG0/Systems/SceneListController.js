@@ -7,7 +7,8 @@ import * as SceneList from '../../Scenes/SceneList.js'
 import { M4Scene } from '../Objects/M4Scene.js'
 
 class SceneListController {
-  constructor() {
+  constructor(orchestrator) {
+    this.orchestrator = orchestrator
     this.importSceneList()
     this.currentSceneIndex = 0
   }
@@ -22,6 +23,15 @@ class SceneListController {
     }
   }
 
+  getPrefabList() {
+    const prefabs = []
+    this.scenes.forEach(scene => {
+      prefabs.push(scene.prefabList())
+    })
+
+    return prefabs
+  }
+
   currentScene() {
     if (this.scenes.length == 0) {
       return new M4Scene()
@@ -30,13 +40,9 @@ class SceneListController {
     return this.scenes[this.currentSceneIndex]
   }
 
-  async init() {
-
-  }
-
-  start() {
+  async start() {
     this.currentScene().start()
   }
 }
 
-export { SceneListController };
+export { SceneListController }

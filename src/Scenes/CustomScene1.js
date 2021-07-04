@@ -22,8 +22,9 @@ class CustomScene1 extends M4Scene {
   prefabs() {
     const robot = new Robot()
 
-    return {
-    }
+    return [
+      robot,
+    ]
   }
 
   start() {

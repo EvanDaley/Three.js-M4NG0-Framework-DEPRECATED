@@ -18,8 +18,8 @@ class Orchestrator {
   constructor(canvasContainer) {
     this.canvasContainer = canvasContainer
 
-    this.assetLoader = new AssetLoader()
-    this.sceneListController = new SceneListController()
+    this.assetLoader = new AssetLoader(this)
+    this.sceneListController = new SceneListController(this)
     this.renderer = new M4Renderer()
     this.gameLoop = new Loop(this)
     this.resizer = new Resizer(this.canvasContainer, this.getActiveCamera(), this.renderer)
@@ -29,10 +29,7 @@ class Orchestrator {
   }
 
   async init() {
-    this.resizer.onResize()
-
-    await this.sceneListController.init()
-    await this.assetLoader.init()
+    await this.assetLoader.loadStaticAssets()
     await this.sceneListController.start()
   }
 
