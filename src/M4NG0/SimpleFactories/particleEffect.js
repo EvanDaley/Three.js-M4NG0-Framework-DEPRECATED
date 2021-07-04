@@ -1,5 +1,4 @@
 import {
-  BoxBufferGeometry,
   BufferAttribute,
   BufferGeometry,
   Points,
@@ -13,7 +12,6 @@ function createBackgroundParticles() {
   const particlcesGeometry = new BufferGeometry
   const particlesCount = 5000
 
-  // array of [x,y,z, x,y,z] for 5000 points
   const positionArray = new Float32Array(particlesCount * 3)
 
   for (let i = 0; i < particlesCount * 3; i++) {
@@ -25,11 +23,7 @@ function createBackgroundParticles() {
   const particlesMesh = new Points(particlcesGeometry, material)
 
   particlesMesh.tick = (delta, mouseX, mouseY) => {
-    // particlesMesh.rotation.y += mouseY * delta * .01 || 0
-    // particlesMesh.rotation.x += mouseX * delta * .01 || 0
-
     particlesMesh.rotation.y += delta * -.005
-    // particlesMesh.rotation.x += delta * .002
   }
 
   return particlesMesh

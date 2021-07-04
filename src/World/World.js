@@ -1,16 +1,16 @@
 import throttle from "lodash.throttle"
 
-import { createCamera } from './components/camera.js';
-import { createLights } from './components/lights.js';
-import { createScene } from './components/scene.js';
+import { createCamera } from '../M4NG0/SimpleFactories/perspectiveCamera.js';
+import { createLights } from '../M4NG0/SimpleFactories/simpleLighting.js';
+import { createScene } from '../M4NG0/SimpleFactories/simpleScene.js';
 import { loadBots } from './components/bots/bots.js';
-import { createGround } from './components/ground.js'
-import { createBackgroundParticles } from './components/particles';
+import { createGround } from '../M4NG0/SimpleFactories/ground.js'
+import { createBackgroundParticles } from '../M4NG0/SimpleFactories/particleEffect';
 
-import { createControls } from './systems/controls.js';
-import { createRenderer } from './systems/renderer.js';
-import { Resizer } from './systems/Resizer.js';
-import { Loop } from './systems/Loop.js';
+import { createControls } from '../M4NG0/SimpleFactories/controls.js';
+import { createRenderer } from '../M4NG0/SimpleFactories/renderer.js';
+import { Resizer } from '../M4NG0/Systems/Resizer.js';
+import { Loop } from '../M4NG0/Systems/Loop.js';
 import { Color } from 'three';
 
 let camera
