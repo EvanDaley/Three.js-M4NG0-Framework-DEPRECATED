@@ -35,7 +35,7 @@ class Orchestrator {
 
   render() {
     this.renderer.render(
-      this.sceneListController.currentScene(),
+      this.sceneListController.getCurrentScene(),
       this.getActiveCamera()
     )
   }
@@ -48,8 +48,12 @@ class Orchestrator {
     this.gameLoop.stop();
   }
 
+  getScenes() {
+    return this.sceneListController.getScenes()
+  }
+
   getCurrentScene() {
-    return this.sceneListController.currentScene()
+    return this.sceneListController.getCurrentScene()
   }
 
   getActiveCamera() {

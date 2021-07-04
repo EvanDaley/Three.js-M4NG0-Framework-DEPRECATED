@@ -22,14 +22,15 @@ class CustomScene1 extends M4Scene {
   prefabs() {
     const robot = new Robot()
 
+    this.add(robot)
+
     return [
       robot,
     ]
   }
 
   start() {
-    // For now, lets hardcode a bunch of stuff in here to get this going.
-    // We'll pull everything out and put it in the correct locations later.
+    // TODO: Remove all of this.
 
     // create a geometry
     const geometry = new BoxBufferGeometry(2, 2, 2)
@@ -42,6 +43,8 @@ class CustomScene1 extends M4Scene {
 
     // add the mesh to the scene
     this.add(cube)
+
+    console.log('scene', this)
 
   }
 }

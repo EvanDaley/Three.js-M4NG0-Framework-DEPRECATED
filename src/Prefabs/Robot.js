@@ -11,7 +11,7 @@ class Robot extends M4Prefab {
     super()
   }
 
-  importAssets() {
+  requiredAssets() {
     return [
       {
         type: 'model',
@@ -22,17 +22,11 @@ class Robot extends M4Prefab {
   }
 
   // Once the asset has loaded, we let the prefab decide what to do with its own data.
-  processData(data) {
-
-
-
+  processRobotData(data) {
     // TODO: Strip this down
     // TODO: Strip this down
     // TODO: Strip this down
     // TODO: Strip this down
-    // TODO: Strip this down
-
-
 
     const updatables = []
 
@@ -51,8 +45,10 @@ class Robot extends M4Prefab {
         model.tick = (delta) => mixer.update(delta)
       }
 
-      this.add(model)
-      updatables.push(model)
+      // console.log('this', this)
+
+      this.prefab.add(model)
+      // updatables.push(model)
     }
 
     const radiansPerSecond = MathUtils.degToRad(-3)
@@ -81,7 +77,6 @@ class Robot extends M4Prefab {
 
   tick() {
     console.log("Robot Tick")
-
   }
 }
 

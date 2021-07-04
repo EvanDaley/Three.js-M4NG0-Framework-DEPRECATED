@@ -9,13 +9,13 @@ import { M4Scene } from '../Objects/M4Scene.js'
 class SceneListController {
   constructor(orchestrator) {
     this.orchestrator = orchestrator
-    this.importSceneList()
     this.currentSceneIndex = 0
+
+    this.importSceneList()
   }
 
   importSceneList() {
     this.scenes = []
-
     const keys = Object.keys(SceneList.default)
     for (const key of keys) {
       const actualScene = SceneList.default[key]
@@ -23,16 +23,11 @@ class SceneListController {
     }
   }
 
-  getPrefabList() {
-    const prefabs = []
-    this.scenes.forEach(scene => {
-      prefabs.push(scene.prefabList())
-    })
-
-    return prefabs
+  getScenes() {
+    return this.scenes
   }
 
-  currentScene() {
+  getCurrentScene() {
     if (this.scenes.length == 0) {
       return new M4Scene()
     }
@@ -41,7 +36,8 @@ class SceneListController {
   }
 
   async start() {
-    this.currentScene().start()
+    console.log('cur', this.getCurrentScene())
+    this.getCurrentScene().start()
   }
 }
 
