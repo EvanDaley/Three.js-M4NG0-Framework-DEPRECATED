@@ -20,32 +20,16 @@ class CustomScene1 extends M4Scene {
 
   // Here we specify which prefabs we'll use.
   prefabs() {
-    const robot = new Robot()
-
-    this.add(robot)
-
+    this.robot = new Robot()
+    
     return [
-      robot,
+      this.robot,
     ]
   }
 
   start() {
-    // TODO: Remove all of this.
-
-    // create a geometry
-    const geometry = new BoxBufferGeometry(2, 2, 2)
-
-    // create a default (white) Basic material
-    const material = new MeshBasicMaterial()
-
-    // create a Mesh containing the geometry and material
-    const cube = new Mesh(geometry, material)
-
-    // add the mesh to the scene
-    this.add(cube)
-
+    this.add(this.robot)
     console.log('scene', this)
-
   }
 }
 

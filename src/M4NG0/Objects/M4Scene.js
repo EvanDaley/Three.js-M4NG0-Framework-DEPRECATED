@@ -25,6 +25,10 @@ class M4Scene extends Scene {
       return {}
     }
 
+    prefabs() {
+
+    }
+
     // If you want different camera settings, override this or modify this.camera directly.
     createCamera() {
       return createCamera()
