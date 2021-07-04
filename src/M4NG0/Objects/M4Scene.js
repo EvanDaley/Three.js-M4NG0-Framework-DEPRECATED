@@ -5,36 +5,29 @@
 */
 
 import { Scene } from 'three';
-import { cameraFromFactory } from '../M4NG0/SimpleFactories/perspectiveCamera.js';
+import { createCamera } from './../SimpleFactories/perspectiveCamera.js';
 
 class M4Scene extends Scene {
     constructor() {
-        super();
+        super()
 
         this.createCamera()
     }
 
-    /*
-      Override this with the definition 
-    */
-    blueprint() {
-      console.log("blueprint should be overriden by your custom scene")
+    // You can override this
+    setDefaults() {
+      this.background = new Color('#11181a')
+      this.background = new Color('red')
+    }
 
-      // E.g.
-      // return {
-      //   prefabs: [
-      //     {
-      //       name: 'Bot',
-      //       x: 0, 
-      //       y: 0
-      //     }
-      //   ]
-      // }
+    // You can override this
+    blueprint() {
+      return {}
     }
 
     // Override this to put your camera in a different spot.
     createCamera() {
-      this.camera = cameraFromFactory()
+      this.camera = createCamera()
     }
 
     start() {
@@ -42,6 +35,6 @@ class M4Scene extends Scene {
     }
 }
 
-M4Scene.prototype.isM4Scene = true;
+M4Scene.prototype.isM4Scene = true
 
-export { M4Scene };
+export { M4Scene }

@@ -10,11 +10,11 @@ class Robot extends M4Prefab {
     
   }
 
-  tick() {
+  start() {
 
   }
 
-  start() {
+  tick() {
 
   }
 }

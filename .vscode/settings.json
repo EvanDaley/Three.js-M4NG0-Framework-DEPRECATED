@@ -1,0 +1,5 @@
+{
+    "javascript.format.semicolons": "remove",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
+}

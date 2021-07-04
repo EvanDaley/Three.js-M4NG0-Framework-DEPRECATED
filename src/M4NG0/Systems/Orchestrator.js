@@ -8,7 +8,9 @@
   6. Each time we finish building a scene, log "scene x is ready"
 */
 
+import { M4Renderer } from "../Objects/M4Renderer"
 import { AssetLoader } from "./AssetLoader"
+import { Loop } from "./Loop"
 import { SceneListController } from "./SceneListController"
 
 class Orchestrator {
@@ -17,6 +19,8 @@ class Orchestrator {
 
     this.assetLoader = new AssetLoader()
     this.sceneListController = new SceneListController()
+    this.renderer = new M4Renderer()
+    this.gameLoop = new Loop()
   }
 
   async init() {
