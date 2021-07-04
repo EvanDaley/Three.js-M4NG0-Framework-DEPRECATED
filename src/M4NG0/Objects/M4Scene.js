@@ -4,14 +4,15 @@
   Extend this class for your own custom scenes.
 */
 
-import { Scene } from 'three';
+import { Color, Scene } from 'three';
 import { createCamera } from './../SimpleFactories/perspectiveCamera.js';
 
 class M4Scene extends Scene {
     constructor() {
         super()
 
-        this.createCamera()
+        this.camera = this.createCamera()
+        this.setDefaults()
     }
 
     // You can override this
@@ -27,7 +28,7 @@ class M4Scene extends Scene {
 
     // Override this to put your camera in a different spot.
     createCamera() {
-      this.camera = createCamera()
+      return createCamera()
     }
 
     start() {

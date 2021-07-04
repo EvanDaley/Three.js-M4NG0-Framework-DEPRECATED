@@ -5,6 +5,7 @@
   Start will run when its time to display this scene.
 */
 
+import { BoxBufferGeometry, Mesh, MeshBasicMaterial } from "three"
 import { M4Scene } from "../M4NG0/Objects/M4Scene"
 import { Robot } from "../Prefabs/Robot"
 
@@ -25,7 +26,17 @@ class CustomScene1 extends M4Scene {
     // For now, lets hardcode a bunch of stuff in here to get this going.
     // We'll pull everything out and put it in the correct locations later.
 
+    // create a geometry
+    const geometry = new BoxBufferGeometry(2, 2, 2)
 
+    // create a default (white) Basic material
+    const material = new MeshBasicMaterial()
+
+    // create a Mesh containing the geometry and material
+    const cube = new Mesh(geometry, material)
+
+    // add the mesh to the scene
+    this.add(cube)
 
   }
 }

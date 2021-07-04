@@ -1,10 +1,15 @@
-const setSize = (container, camera, renderer) => {
-  camera.aspect = container.clientWidth / container.clientHeight;
-  camera.updateProjectionMatrix();
+/* 
+  M4NG0 Resizer
+  Resize the canvas and update the projection matrix on the active camera.
+*/
 
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
-};
+const setSize = (container, camera, renderer) => {
+  camera.aspect = container.clientWidth / container.clientHeight
+  camera.updateProjectionMatrix()
+
+  renderer.setSize(container.clientWidth, container.clientHeight)
+  renderer.setPixelRatio(window.devicePixelRatio)
+}
 
 class Resizer {
   constructor(container, camera, renderer) {
@@ -12,14 +17,12 @@ class Resizer {
     this.camera = camera
     this.renderer = renderer
 
-    setSize(container, camera, renderer);
-
     window.addEventListener('resize', () => {
-      setSize(container, camera, renderer);
-      this.onResize();
-    });
+      setSize(container, camera, renderer)
+      this.onResize()
+    })
 
-    setSize(container, camera, renderer);
+    setSize(container, camera, renderer)
   }
 
   onResize() {
@@ -27,4 +30,4 @@ class Resizer {
   }
 }
 
-export { Resizer };
+export { Resizer }
