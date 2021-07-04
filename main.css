@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    overflow: hidden;
+    font-size: 12px;
+    /* Decent options: Courier New, Arial, Verdana, Helvetica */
+    font-family: 'Helvetica';
+    color: white;
+    height: 100vh;
+}
+
+#m4ng0-canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #11181a;
+}
+
+.html-content-container {
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+
+.scene-one-content {
+    display: flex;
+    gap: 5em;
+    width: 100%;
+    padding-top: 3em;
+    position: relative;
+}
+
+.scene-one-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid white;
+    transform: scaleX(1);
+}
+
+h1 {
+    font-size: 4rem;
+    width: 50vw;
+    line-height: 97%;
+    text-align: right;
+}
+
+h1, .subheading {
+    /* pointer-events: visiblePainted; */
+    flex-basis: 0;
+    flex-grow: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.subheading {
+    /* padding: 10px; */
+    font-size: 1.4rem;
+    width: 40vw;
+}
+
+.progress {
+    margin-top: 10px;
+    width: 90%;
+    height: 16px;
+    background: none;
+    border-style: solid;
+    border-radius: 3px;
+    border-width: thin;
+    border-color: white;
+    overflow: hidden;
+}
+
+.progress .progress-bar {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #ffd33d, #ea4aaa 17%, #b34bff 34%, #01feff 51%, #ffd33d 68%, #ea4aaa 85%, #b34bff);
+    background-size: 300% 100%;
+    animation: progress-animation 2s linear infinite;
+}
+
+@keyframes progress-animation {
+    0% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: 0;
+    }
+}
+
+/*# sourceMappingURL=main.css.map*/
