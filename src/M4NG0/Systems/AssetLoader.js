@@ -4,7 +4,6 @@
 
 class AssetLoader {
     constructor() {
-        super();
     }
 
     init() {

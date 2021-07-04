@@ -5,7 +5,9 @@
   `Start` will run when its time to display this scene.
 */
 
-class CustomScene1 extends M4Sc {
+import { M4Scene } from "../M4NG0/Objects/M4Scene";
+
+class CustomScene1 extends M4Scene {
   constructor() {
     super();
   }
@@ -22,4 +24,4 @@ class CustomScene1 extends M4Sc {
   }
 }
 
-export { CustomScene1 };
+export default { CustomScene1 };

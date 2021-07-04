@@ -1,10 +1,11 @@
 import './style.css'
 import { World } from './World/World.js';
 import { gsap, ScrollTrigger, CSSRulePlugin } from "gsap/all";
-import { Orchestrator } from './M4NG0/Orchestrator';
+import { Orchestrator } from './M4NG0/Systems/Orchestrator';
 
 async function main() {
-  // const orchestrator = new Orchestrator()
+  const orchestrator = new Orchestrator()
+  orchestrator.init()
 
   await initThreeJSWorld()
   await initContentAnimations()
