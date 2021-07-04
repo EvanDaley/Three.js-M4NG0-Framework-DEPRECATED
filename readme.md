@@ -5,7 +5,7 @@
 [Photo shameless taken from images.indianexpress.com]
 
 Embrace the Mango:
-- M4NG0'S clean and reusable structure makes starting new 3d projects a breeze
+- M4NG0'S clean and reusable structure makes starting new 3d websites a breeze
 - Asset management is greatly simplified. Models and textures are loaded asynchronously and can be shared between scenes
 - One reusable renderer, and one full-screen canvas
 - Helper methods make it easy to create scenes and swap between them
@@ -22,15 +22,14 @@ See the live demo here: [TODO]
 ## How is this different from other frameworks?
 M4NG0 is small and opinionated. It doesn't come with a lot of bells and whistles, but gives you the basics to build multi-scene three.js sites with animated html overlays (like the demo! ^). If you need to add physics, import ammo-physics with npm. If you're looking for a full game engine, this isn't it!
 
-### Project Structure
-[ TODO: Turn this into "Lifecyle" and move it down below everything else ]
-Okay, lets dive in. I've got a detailed "first steps" section below - but I suggest studying this section first to understand the basics of the project.
+## Project Structure
+Okay, lets dive in. I've got a detailed "first steps" section below - but I suggest skimming this section to get familiar with the basics first.
 
 Heres what you need to know:
 
 On page load, we create an instance of `Orchestrator`. Orchestrator keeps track of events, and helps us transition between our scenes. 
 
-As soon as its ready, Orchestrator calls the async function `AssetLoader.init()` to begin pulling the static assets like 3d models and textures. This will ONLY pull assets that are referenced by Prefabs. Prefabs are the glue that connects art with code. Every asset must be defined as a prefab to exist in a scene.
+As soon as its ready, `Orchestrator` begins loading up the static assets like 3d models and textures that are referenced by your scenes. This will ONLY pull assets that are referenced by Prefabs. Prefabs are the glue that connects art with code. Every non-primitive asset must be defined as a prefab to exist in a scene.
 
 Once everything has finished loading in the background, `Orchestrator` will call the async function `start` on the first scene.
 

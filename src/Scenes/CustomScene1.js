@@ -8,9 +8,9 @@
 import { M4Scene } from "../M4NG0/Objects/M4Scene";
 
 class CustomScene1 extends M4Scene {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   // Here we specify which prefabs we'll use.
   prefabs() {

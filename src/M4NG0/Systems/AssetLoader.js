@@ -6,7 +6,7 @@ class AssetLoader {
     constructor() {
     }
 
-    init() {
+    async init() {
 
     }
 }

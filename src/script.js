@@ -5,7 +5,7 @@ import { Orchestrator } from './M4NG0/Systems/Orchestrator';
 
 async function main() {
   const orchestrator = new Orchestrator()
-  orchestrator.init()
+  await orchestrator.init()
 
   await initThreeJSWorld()
   await initContentAnimations()
