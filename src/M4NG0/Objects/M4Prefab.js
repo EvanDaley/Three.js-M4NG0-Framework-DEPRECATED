@@ -13,20 +13,15 @@ class M4Prefab extends Group {
 
   // Once the asset has loaded, grab the pieces we want from the data.
   async processImportData(data) {
-    const model = data.scene.children[0];
-  
-    return model;
+    for (let i = 0; i < data.scene.children.length; i++) {
+      const model = data.scene.children[0]
+      this.add(model)
+    }
   }
 
   requiredAssets() { return null }
-
-  tick() {
-
-  }
-
-  start() {
-
-  }
+  tick() {}
+  start() {}
 }
 
 M4Prefab.prototype.isM4Prefab = true

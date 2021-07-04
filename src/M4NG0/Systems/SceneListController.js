@@ -36,7 +36,6 @@ class SceneListController {
   }
 
   async start() {
-    console.log('cur', this.getCurrentScene())
     this.getCurrentScene().start()
   }
 }

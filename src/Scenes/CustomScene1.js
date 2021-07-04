@@ -5,15 +5,13 @@
   Start will run when its time to display this scene.
 */
 
-import { BoxBufferGeometry, Mesh, MeshBasicMaterial, Color } from "three"
+import { Color } from "three"
 import { M4Scene } from "../M4NG0/Objects/M4Scene"
+import { createLights } from "../M4NG0/SimpleFactories/createLights"
+import { ParticleEffect } from "../Prefabs/ParticleEffect"
 import { Robot } from "../Prefabs/Robot"
 
 class CustomScene1 extends M4Scene {
-  // constructor() {
-  //   super();
-  // }
-
   setDefaults() {
     this.background = new Color('#21282a')
   }
@@ -21,14 +19,23 @@ class CustomScene1 extends M4Scene {
   // Here we specify which prefabs we'll use.
   prefabs() {
     this.robot = new Robot()
-    
+    this.particleEffect = new ParticleEffect()
+
     return [
       this.robot,
+      this.particleEffect
     ]
   }
 
   start() {
+    const { ambientLight, mainLight } = createLights()
+
+    this.add(ambientLight)
+    this.add(mainLight)
+
     this.add(this.robot)
+    this.add(this.particleEffect)
+
     console.log('scene', this)
   }
 }

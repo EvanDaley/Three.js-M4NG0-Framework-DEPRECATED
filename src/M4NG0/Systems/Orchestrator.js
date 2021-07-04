@@ -31,6 +31,7 @@ class Orchestrator {
   async init() {
     await this.assetLoader.loadStaticAssets()
     await this.sceneListController.start()
+    this.gameLoop.gatherUpdatables()
   }
 
   render() {

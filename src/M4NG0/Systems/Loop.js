@@ -17,6 +17,16 @@ class Loop {
     });
   }
 
+  gatherUpdatables() {
+    this.updatables = []
+    const currentScene = this.orchestrator.getCurrentScene()
+    currentScene.children.forEach(sceneObject => {
+      if (sceneObject.isAnimatable) {
+        this.updatables.push(sceneObject)
+      }
+    })
+  }
+
   stop() {
     this.renderer.setAnimationLoop(null);
   }

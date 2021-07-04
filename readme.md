@@ -29,16 +29,18 @@ Heres what you need to know:
 
 On page load, we create an instance of `Orchestrator`. Orchestrator keeps track of events, and helps us transition between our scenes. 
 
-As soon as its ready, `Orchestrator` begins loading up the static assets like 3d models and textures that are referenced by your scenes. This will ONLY pull assets that are referenced by Prefabs. Prefabs are the glue that connects art with code. Every non-primitive asset must be defined as a prefab to exist in a scene.
+As soon as its ready, `Orchestrator` kicks off the process of loading up the static assets like 3d models and textures that are referenced by your scenes. This will ONLY pull assets that are referenced by Prefabs. Prefabs are the glue that connects art with code. Every non-primitive should be defined as a prefab and imported into a scene.
 
 Once everything has finished loading in the background, `Orchestrator` will call the async function `start` on the first scene.
 
-Scenes are defined by you! All scenes must extend the base class M4Scene. More on that later.
+To add functionality to your prefabs, set isAnimatable to true in the constructor, and add a `tick(delta)` method. This behaves similarly to Unity's `OnUpdate`.
+
+Scenes are defined by you! All scenes should extend the base class M4Scene. More on that later.
 
 ### Classes of note
 Orchestrator - Creates everything. Manages your scenes. Keeps track of events.
 
-AssetLoader - Loads all your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
+AssetLoader - Loads your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
 
 M4Scene - Acts as the basic building block for your custom scenes. Should be extended for your own scenes.
 
