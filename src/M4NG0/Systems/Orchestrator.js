@@ -22,19 +22,10 @@ class Orchestrator {
     this.sceneListController = new SceneListController()
     this.renderer = new M4Renderer()
     this.gameLoop = new Loop(this)
-
-    this.resizer = new Resizer(
-      this.canvasContainer,
-      this.getActiveCamera(),
-      this.renderer
-    )
+    this.resizer = new Resizer(this.canvasContainer, this.getActiveCamera(), this.renderer)
 
     this.canvasContainer.append(this.renderer.domElement);
     this.render()
-  }
-
-  getActiveCamera() {
-    return this.sceneListController.currentScene().camera
   }
 
   async init() {
@@ -43,14 +34,6 @@ class Orchestrator {
     await this.sceneListController.init()
     await this.assetLoader.init()
     await this.sceneListController.start()
-
-    // Sometimes we need to call this a second time to fix the sizing.
-    this.resizer.onResize()
-
-    // I'm not sure why we need to do this. Like 1 out of 10 loads, it doesn't 
-    // setTimeout(() => {
-    //   this.resizer.onResize()
-    // }, 500)
   }
 
   render() {
@@ -66,6 +49,14 @@ class Orchestrator {
 
   stop() {
     this.gameLoop.stop();
+  }
+
+  getCurrentScene() {
+    return this.sceneListController.currentScene()
+  }
+
+  getActiveCamera() {
+    return this.getCurrentScene().camera
   }
 }
 

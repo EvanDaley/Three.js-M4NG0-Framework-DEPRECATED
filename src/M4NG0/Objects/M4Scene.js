@@ -18,7 +18,6 @@ class M4Scene extends Scene {
     // You can override this
     setDefaults() {
       this.background = new Color('#11181a')
-      this.background = new Color('red')
     }
 
     // You can override this

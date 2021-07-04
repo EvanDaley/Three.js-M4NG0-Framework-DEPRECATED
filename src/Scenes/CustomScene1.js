@@ -5,7 +5,7 @@
   Start will run when its time to display this scene.
 */
 
-import { BoxBufferGeometry, Mesh, MeshBasicMaterial } from "three"
+import { BoxBufferGeometry, Mesh, MeshBasicMaterial, Color } from "three"
 import { M4Scene } from "../M4NG0/Objects/M4Scene"
 import { Robot } from "../Prefabs/Robot"
 
@@ -13,6 +13,10 @@ class CustomScene1 extends M4Scene {
   // constructor() {
   //   super();
   // }
+
+  setDefaults() {
+    this.background = new Color('#21282a')
+  }
 
   // Here we specify which prefabs we'll use.
   prefabs() {
