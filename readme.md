@@ -17,7 +17,7 @@ Optional advanced features:
 - Deploy to github pages with one npm command.
 
 ## Live Demo
-See the live demo here: [TODO]
+See the live demo here: https://evandaley.github.io/Three.js-M4NG0-Framework/
 
 ## How is this different from other frameworks?
 M4NG0 is small and opinionated. It doesn't come with a lot of bells and whistles, but gives you the basics to build multi-scene three.js sites with animated html overlays (like the demo! ^). If you need to add physics, import ammo-physics with npm. If you're looking for a full game engine, this isn't it!
