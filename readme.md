@@ -1,29 +1,26 @@
 # Project M4NG0 - A Three.js Framework
-#### This project gives you a starting ground for a `multi-scene` project with three.js, webpack and GSAP.
+#### M4NG0 takes away the headache of starting a new three.js project by imposing order, and modularizing the core elements of a three.js project
 
 ![portal image](mango.jpg)
 [Photo shameless taken from images.indianexpress.com]
 
-## Live Demo
+# Live Demo
 See the live demo here: https://evandaley.github.io/Three.js-M4NG0-Framework/
 
-Embrace the Mango:
-M4NG0 takes away the headache of starting a new three.js project. We provide you with a clean foundation, a scene, camera, renderer, asset loader, clock, scene manager and a bunch of other quality of life things that you would expect from a proper engine.
-
-Primary features:
-- Skip setting up the boilerplate. Don't worry about defining the canvas, renderer, camera, lighting, or scene ever again.
-- Asset management is greatly simplified. Meshes are loaded automatically and can be shared between scenes.
-- Scenes are proper classes with a simple event lifecycle. Helper methods make it easy to instantiate scenes and swap between them.
-- Webpack configuration makes it easy to build for production.
+## Embrace the Mango:
+- M4NG0 does the grunt work: asset loader, scene manager, full-screen canvas, renderer, camera, default lighting, and more.
 - Prefabs are introduced as the primary building block. This helps greatly in organizing your code.
+- Asset management is greatly simplified. Meshes are loaded automatically and can be shared between scenes.
+- Scenes are smarter and have a simple event lifecycle.
+- Webpack configuration makes it easy to build for production.
 
 Optional advanced features:
 - GSAP provides a simple API for extremely customizable animations
-- Customizable loading screen (in development)
 - Deploy to github pages with a single npm command.
+- Customizable loading screen displays until assets finish loading (in development)
 
 ## How is this different from other frameworks?
-M4NG0 is small and **opinionated**. It doesn't come with a lot of bells and whistles, but gives you a strong organized foundation and provides quality of life improvements like prefab support, better asset management, scene management, and a simple event lifecycle for objects. If you're looking for a complete game engine, this isn't it! 
+M4NG0 is small and **opinionated**. It doesn't come with a lot of bells and whistles, but gives you a strong organized foundation and provides quality of life improvements like prefab support, better asset management, scene management, and a simple event lifecycle for objects. But if you're looking for a complete game engine, this isn't it! 
 
 ## Project Structure
 Okay, lets dive in. I've got a detailed "first steps" section below - but I suggest skimming this section to get familiar with the basics first.
