@@ -28,22 +28,18 @@ M4NG0 is small and **opinionated**. It doesn't come with a lot of bells and whis
 ### Overview
 Okay, lets dive in. I've got a detailed "first steps" section below - but I suggest skimming this section to get familiar with the basics first. Heres what you need to know:
 
-1. On page load, we create an instance of `Orchestrator`. Orchestrator sets up our renderer and all of the helpers like our asset loader and scene manager.
+1. On page load, you create an `Orchestrator`. Orchestrator sets up our renderer and all of the helpers like our asset loader and scene manager.
 2. As soon as its ready, `Orchestrator` kicks off the process of loading up the static assets like 3d models and textures that are referenced by your scenes. This will ONLY pull assets that are referenced by Scenes/Prefabs. Every non-primitive object should be defined as a prefab and imported into a scene.
-3. Once everything has finished loading in the background, `Orchestrator` will call the async function `start` on the first scene.
+3. Once everything has finished loading, `Orchestrator` will call the async function `start` on the first scene.
 4. Scenes are defined by you! We provide one example, but its pretty easy to make your own. By default, all new scenes come with a camera and basic lighting. All scenes should extend the base class M4Scene. More on that later.
 
 ### Prefabs
-Prefabs are custom classes that define the form and function of an object. They specify which assets to pull and how those assets should behave in the scene. Everything is a prefab. 
+Prefabs are custom classes that define the form and function of any 3d object. Each prefab specifies which static assets it needs (meshes, textures, etc) and how those assets should behave in the scene. Prefabs should be used as the basic building blocks for everything in your scenes.
+
+Extend `M4Prefab` to create a new prefab. The prefab method `tick(delta)` is M4NG0's equivalent of `OnUpdate` and will be called on any prefab that sets `isAnimatable=true`.
 
 ### Assets
-If you have any models or textures to load, put them in `./static/models` and `./static/textures`. Assets will be pulled in by the AssetLoader class on page load. Note that we only load assets that are referened by prefabs! 
-
-### Classes of Note
-- Orchestrator: Creates the systems that manage everything. This is the interface that lets you switch scenes or interact directly with the renderer.
-- AssetLoader: Loads your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
-- M4Scene: Acts as the basic building block for your custom scenes. An `M4Scene` is an instance of a `Three.Scene` with added behavior. Comes with lights and a camera by default. Extend this with your own scenes.
-- M4Prefab: This is the class you should extend to create any kind of object that has behavior. Robot.js is a good example. The method `tick(delta)` is M4NG0's equivalent of `OnUpdate` and will be called on any prefab that sets isAnimatable to true. Tick passes a "delta" which indicates how much time passed between frames. We don't have a fixedUpdate equivalent.
+If you have any models or textures to load, put them in `./static/models` and `./static/textures`. Assets referenced by prefabs will be pulled in by the AssetLoader automatically. Note that we only load assets that are referened by prefabs! 
 
 Now that we've covered the basics, lets work toward making some modifications.
 
@@ -139,6 +135,12 @@ Deploy to github pages with:
 npm run deploy
 ```
 Then, on github, go into your repo settings->pages and choose `gh-pages` as the branch (and save!).
+
+## Classes of Note
+- `Orchestrator`: Creates the systems that manage everything. This is the interface that lets you switch scenes or interact directly with the renderer.
+- `AssetLoader`: Loads your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
+- `M4Scene`: Acts as the basic building block for your custom scenes. An `M4Scene` is an instance of a `Three.Scene` with added behavior. M4Scenes come with lights and a camera by default. Extend this with your own scenes.
+- `M4Prefab`: The basic building block for any scene object. Has a `tick` method which will be called every frame if `isAnimatable` is set to true on the prefab. `Tick()` receives a float value `deltaTime` which indicates how much time passed between frames. We don't have a fixedUpdate equivalent.
 
 ## FAQ
 #### How do I add M4NG0 to an existing project?
