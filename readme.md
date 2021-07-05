@@ -10,7 +10,7 @@ See the live demo here: https://evandaley.github.io/Three.js-M4NG0-Framework/
 
 M4NG0 takes away the headache of starting a new three.js project by imposing order, and modularizing the core elements of a three.js project
 
-- M4NG0 does the grunt work: we provide an asset loader, scene manager, full-screen canvas, renderer, camera, default lighting, and more.
+- M4NG0 does the grunt work: we provide an asset loader, scene manager, full-screen canvas, renderer, camera, default lighting, and a bunch more stuff that doesn't come by default with three.js.
 - Prefabs are introduced as the primary building block. This helps greatly in organizing your code.
 - Asset management is greatly simplified. Meshes are loaded automatically and can be shared between scenes.
 - Scenes are smarter and have a simple event lifecycle.
