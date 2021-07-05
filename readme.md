@@ -31,7 +31,7 @@ Okay, lets dive in. I've got a detailed "first steps" section below - but I sugg
 1. On page load, we create an instance of `Orchestrator`. Orchestrator sets up our renderer and all of the helpers like our asset loader and scene manager.
 2. As soon as its ready, `Orchestrator` kicks off the process of loading up the static assets like 3d models and textures that are referenced by your scenes. This will ONLY pull assets that are referenced by Scenes/Prefabs. Every non-primitive object should be defined as a prefab and imported into a scene.
 3. Once everything has finished loading in the background, `Orchestrator` will call the async function `start` on the first scene.
-4. Scenes are defined by you! We provide one example, and make it easy to create your own. By default, all new scenes come with a camera and basic lighting. All scenes should extend the base class M4Scene. More on that later.
+4. Scenes are defined by you! We provide one example, but its pretty easy to make your own. By default, all new scenes come with a camera and basic lighting. All scenes should extend the base class M4Scene. More on that later.
 
 ### Prefabs
 Prefabs are custom classes that define the form and function of an object. They specify which assets to pull and how those assets should behave in the scene. Everything is a prefab. 
