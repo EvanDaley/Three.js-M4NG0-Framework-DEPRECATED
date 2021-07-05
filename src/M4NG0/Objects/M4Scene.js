@@ -5,12 +5,13 @@
 */
 
 import { Color, Scene } from 'three';
-import { createCamera } from './../SimpleFactories/perspectiveCamera.js';
+import { createPerspectiveCamera } from '../SimpleFactories/createCamera.js';
 
 class M4Scene extends Scene {
     constructor() {
         super()
-
+        
+        // this.orchestrator = orchestrator
         this.camera = this.createCamera()
         this.setDefaults()
         this.prefabs = []
@@ -28,9 +29,9 @@ class M4Scene extends Scene {
       }
     }
 
-    // If you want different camera settings, override this or modify this.camera directly.
+    // If you want different camera settings, override this or make changes to `this.camera` directly (position, FOV, whatever).
     createCamera() {
-      return createCamera()
+      return createPerspectiveCamera()
     }
 
     start() {

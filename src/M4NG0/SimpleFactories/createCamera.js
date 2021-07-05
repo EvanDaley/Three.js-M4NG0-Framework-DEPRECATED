@@ -1,6 +1,6 @@
 import { PerspectiveCamera } from 'three';
 
-function createCamera() {
+function createPerspectiveCamera() {
   const camera = new PerspectiveCamera(35, 1, 0.1, 100);
 
   camera.position.set(0, 0, 10);
@@ -8,4 +8,4 @@ function createCamera() {
   return camera;
 }
 
-export { createCamera };
+export { createPerspectiveCamera };

@@ -18,13 +18,16 @@ class Orchestrator {
   constructor(canvasContainer) {
     this.canvasContainer = canvasContainer
 
-    this.assetLoader = new AssetLoader(this)
     this.sceneListController = new SceneListController(this)
+    this.assetLoader = new AssetLoader(this)
+    // console.log('cam', {...this.getActiveCamera()})
     this.renderer = new M4Renderer()
     this.gameLoop = new Loop(this)
     this.resizer = new Resizer(this.canvasContainer, this.getActiveCamera(), this.renderer)
 
-    this.canvasContainer.append(this.renderer.domElement);
+    console.log(this.getActiveCamera())
+
+    this.canvasContainer.append(this.getCanvas());
     this.render()
   }
 
@@ -47,6 +50,10 @@ class Orchestrator {
 
   stop() {
     this.gameLoop.stop();
+  }
+
+  getCanvas() {
+    this.renderer.domElement
   }
 
   getScenes() {

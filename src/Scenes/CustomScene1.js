@@ -8,6 +8,7 @@
 import { Color } from "three"
 import { M4Scene } from "../M4NG0/Objects/M4Scene"
 import { createLights } from "../M4NG0/SimpleFactories/createLights"
+import { createControls } from "../M4NG0/SimpleFactories/createControls"
 import { ParticleEffect } from "../Prefabs/ParticleEffect"
 import { Robot } from "../Prefabs/Robot"
 
@@ -27,11 +28,12 @@ class CustomScene1 extends M4Scene {
 
   start() {
     const { ambientLight, mainLight } = createLights()
+    // const controls = createControls(this.camera, this.orchestrator.getCanvas)
 
-    this.add(ambientLight)
-    this.add(mainLight)
+    this.add(ambientLight, mainLight)
 
     console.log('scene', this)
+    console.log('orchestrator', this.orchestrator)
   }
 }
 

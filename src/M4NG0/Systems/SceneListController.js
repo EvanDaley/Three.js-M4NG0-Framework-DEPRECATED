@@ -11,15 +11,20 @@ class SceneListController {
     this.orchestrator = orchestrator
     this.currentSceneIndex = 0
 
-    this.importSceneList()
+    this.createScenes()
   }
 
-  importSceneList() {
+  // Instantiate all scenes listed in SceneList.js
+  createScenes() {
     this.scenes = []
     const keys = Object.keys(SceneList.default)
     for (const key of keys) {
+      // const sceneClass = SceneList.default[key]
+      // const actualScene = new sceneClass(this.orchestrator)
       const actualScene = SceneList.default[key]
       this.scenes.push(actualScene)
+
+      console.log('as', actualScene)
     }
   }
 
