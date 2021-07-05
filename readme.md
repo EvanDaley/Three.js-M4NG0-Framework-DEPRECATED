@@ -66,8 +66,8 @@ At this point, a lite-server should be serving the project locally on port 8080.
 While the server is running, code will immediately be reflected in the browser.
 
 ## First Steps - Development
-First, lets create a new prefab. Open up Robot.js and take a look at whats happening:
-- We set some defaults in the constructor. Setting `isAnimatable` to true tells the system to call `tick` on this class every frame.
+Next we'll create a new prefab, with `src/prefabs/Robot.js` as an example:
+- In Robot.js we set some defaults in the constructor. `this.isAnimatable = true` tells the system to call `tick` on this class every frame.
 - We specify our required assets `models/Robot.glb`
 - Then, we define our start method which will be called after the static assets have been loaded.
 
