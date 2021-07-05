@@ -24,7 +24,7 @@ Optional advanced features:
 ## How is this different from other frameworks?
 M4NG0 is small and **opinionated**. It doesn't come with a lot of bells and whistles, but gives you a strong organized foundation and provides quality of life improvements like prefab support, better asset management, scene management, and a simple event lifecycle for objects. But if you're looking for a complete game engine, this isn't it! 
 
-## Project Structure
+## Important Concepts
 ### Overview
 Okay, lets dive in. I've got a detailed "first steps" section below - but I suggest skimming this section to get familiar with the basics first. Heres what you need to know:
 
