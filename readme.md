@@ -90,7 +90,7 @@ class Flamingo extends M4Prefab {
   }
 
   start() {
-    this.position.x = -3
+    this.position.x = -2
   }
 }
 
@@ -98,10 +98,12 @@ export { Flamingo }
 ```
 
 Now lets import that into a scene.
-- Go into CustomeScene1.js
-- Import the Flamingo prefab with `import { Flamingo } from "../Prefabs/Stork"`
-- Then update the Scene Blueprint to include the Flamingo.
+- In `src/Scenes/CustomScene1.js` we just need to add an import, and update the Scene Blueprint with our new Flamingo prefab.
 ```
+  import { Flamingo } from "../Prefabs/Stork"
+ 
+  ...
+
   blueprint() {
     return {
       prefabs: [
@@ -113,6 +115,9 @@ Now lets import that into a scene.
   }
 ```
 And voila, we have a Flamingo in our scene!
+
+![portal image](flamingo-example.jpg)
+[You should now see a flamingo!]
 
 The process of loading the mesh and adding it to the scene was handled by the AssetLoader and Orchestrator. If you need to hook into that process to interact with the mesh data, you can add a processImportData() method on whatever prefab needs it. See `M4Prefab` for an example.
 
