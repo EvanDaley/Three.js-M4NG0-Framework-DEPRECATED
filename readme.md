@@ -13,8 +13,8 @@ M4NG0 takes away the headache of starting a new three.js project by imposing ord
 - M4NG0 does the grunt work: we provide an asset loader, scene manager, full-screen canvas, renderer, camera, default lighting, and a bunch more stuff that doesn't come by default with three.js.
 - Prefabs are introduced as the primary building block. This helps greatly in organizing your code.
 - Asset management is greatly simplified. Meshes are loaded automatically and can be shared between scenes.
-- Scenes are smarter and have a simple event lifecycle.
-- Webpack configuration makes it easy to build for production.
+- Scenes are more intuitive (default camera, lighting, added behaviors) and have a simple event lifecycle.
+- Our Webpack configuration makes it easy to dev and deploy to any environment (S3, github pages, whatever).
 
 Optional advanced features:
 - GSAP provides a simple API for extremely customizable animations
@@ -35,32 +35,19 @@ As soon as its ready, `Orchestrator` kicks off the process of loading up the sta
 
 Once everything has finished loading in the background, `Orchestrator` will call the async function `start` on the first scene.
 
-Scenes are defined by you! All scenes should extend the base class M4Scene. More on that later.
-
-### Classes of Note
-Orchestrator 
-- Creates everything. Manages your scenes. Keeps track of events.
-
-AssetLoader 
-- Loads your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
-
-M4Scene 
-- Acts as the basic building block for your custom scenes. Should be extended for your own scenes.
-- An `M4Scene` is an instance of a `Three.Scene` with added behavior.
-
-M4Prefab 
-- This is the class you should extend to declare any kind of object that has behavior.
-- To add animation to your prefabs, set isAnimatable to true in the constructor, and add a `tick(delta)` method (M4NG0's equivalent of `OnUpdate`). Tick passes a "delta" which tells you how much time passed between frames. We don't have a fixedUpdate equivalent.
-
-### Assets
-If you have any models or textures to load, put them in 
-- `./static/models`
-- `./static/textures`
-
-Assets in those folders will be pulled in by the AssetLoader class. Note that we only load assets that are referened by prefabs!
+Scenes are defined by you! We provide one example, and make it easy to create your own. By default, all new scenes come with a camera and basic lighting. All scenes should extend the base class M4Scene. More on that later.
 
 ### Prefabs
 Prefabs are custom classes that define the form and function of an object. They specify which assets to pull and how those assets should behave in the scene. Everything is a prefab. 
+
+### Assets
+If you have any models or textures to load, put them in `./static/models` and `./static/textures`. Assets will be pulled in by the AssetLoader class on page load. Note that we only load assets that are referened by prefabs! 
+
+### Classes of Note
+- Orchestrator: Creates the systems that manage everything. This is the interface that lets you switch scenes or interact directly with the renderer.
+- AssetLoader: Loads your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
+- M4Scene: Acts as the basic building block for your custom scenes. An `M4Scene` is an instance of a `Three.Scene` with added behavior. Comes with lights and a camera by default. Extend this with your own scenes.
+- M4Prefab: This is the class you should extend to create any kind of object that has behavior. Robot.js is a good example. The method `tick(delta)` is M4NG0's equivalent of `OnUpdate` and will be called on any prefab that sets isAnimatable to true. Tick passes a "delta" which indicates how much time passed between frames. We don't have a fixedUpdate equivalent.
 
 Now that we've covered the basics, lets work toward making some modifications.
 
@@ -83,13 +70,57 @@ At this point, a lite-server should be serving the project locally on port 8080.
 While the server is running, code will immediately be reflected in the browser.
 
 ## First Steps - Development
-TODO - Explain this better. Make an update to a scene. Swap out an object. Explore the prefabs folder.
+First, lets create a new prefab. Open up Robot.js and take a look at whats happening:
+- We set some defaults in the constructor. Setting `isAnimatable` to true tells the system to call `tick` on this class every frame.
+- We specify our required assets `models/Robot.glb`
+- Then, we define our start method which will be called after the static assets have been loaded.
 
-TODO - Lets talk about creating new scenes.
+Lets make a new prefab
+- Duplicate robot.js and call it Flamingo.js
+- Change the class name and export
+- Try loading a different model (perhaps `models/Flamingo.glb`)
+- Reposition the model in the `start` function
 
-TODO - Make a new scene.
+Now you should have:
+```
+import { M4Prefab } from "../M4NG0/Objects/M4Prefab"
 
-Alright - now we've made some changes. Let's build a deployable package and push it to a server.
+class Flamingo extends M4Prefab {
+  requiredAssets() {
+    return [{
+      type: 'model',
+      filePath: 'models/Flamingo.glb',
+    }]
+  }
+
+  start() {
+    this.position.x = -3
+  }
+}
+
+export { Flamingo }
+```
+
+Now lets import that into a scene.
+- Go into CustomeScene1.js
+- Import the Flamingo prefab with `import { Flamingo } from "../Prefabs/Stork"`
+- Then update the Scene Blueprint to include the Flamingo.
+```
+  blueprint() {
+    return {
+      prefabs: [
+        Robot,
+        Flamingo,
+        ParticleEffect
+      ]
+    }
+  }
+```
+And voila, we have a Flamingo in our scene!
+
+The process of loading the mesh and adding it to the scene was handled by the AssetLoader and Orchestrator. If you need to hook into that process to interact with the mesh data, you can add a processImportData() method on whatever prefab needs it. See `M4Prefab` for an example.
+
+Alright - now we've made some changes. Let's take a look at how to build a deployable package and push it to a server.
 
 ## Deployment
 To build a deployable package:

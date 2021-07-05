@@ -4,7 +4,7 @@
 */
 
 import { M4Prefab } from "../M4NG0/Objects/M4Prefab"
-import { AnimationMixer, MathUtils } from 'three'
+import { MathUtils } from 'three'
 
 class Robot extends M4Prefab {
   constructor() {
