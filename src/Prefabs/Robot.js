@@ -24,6 +24,10 @@ class Robot extends M4Prefab {
     this.rotation.x += this.radiansPerSecond * delta
     this.rotation.y += this.radiansPerSecond * delta
   }
+
+  start() {
+    this.position.y = -1
+  }
 }
 
 export { Robot }

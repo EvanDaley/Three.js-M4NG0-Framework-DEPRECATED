@@ -44,7 +44,7 @@ class AssetLoader {
     requiredAssetDefinition.prefab.processImportData(data)
 
     // Now that its finished loading, lets add it to the scene.
-    requiredAssetDefinition.scene.add(requiredAssetDefinition.prefab)
+    this.addReadyPrefabToScene(requiredAssetDefinition.scene, requiredAssetDefinition.prefab)
 
     this.instantiatedObjects.push(requiredAssetDefinition.prefab)
     console.log("Finished loading asset", requiredAssetDefinition)
@@ -67,7 +67,7 @@ class AssetLoader {
         } else {
           // If a prefab does not have any static assets to load, let's add it to the scene immediately.
           // The other prefabs will be added later on after their promises execute.
-          prefab.scene.add(prefab)
+          this.addReadyPrefabToScene(prefab.scene, prefab)
         }
       })
     }
@@ -89,6 +89,11 @@ class AssetLoader {
     })
 
     return prefabs
+  }
+
+  addReadyPrefabToScene(scene, prefab) {
+    scene.add(prefab)
+    prefab.start()
   }
 }
 
