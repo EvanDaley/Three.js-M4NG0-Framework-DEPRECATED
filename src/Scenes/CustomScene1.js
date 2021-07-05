@@ -1,8 +1,7 @@
 /* 
   CustomScene1
   Copy this file to make your own scenes. 
-  We declare which prefabs to import, and where to put them.
-  Start will run when its time to display this scene.
+  The methods are explained in the parent class.
 */
 
 import { Color } from "three"
@@ -31,8 +30,6 @@ class CustomScene1 extends M4Scene {
 
     const { ambientLight, mainLight } = createLights()
     this.add(ambientLight, mainLight)
-
-    console.log('scene', this)
   }
 }
 
