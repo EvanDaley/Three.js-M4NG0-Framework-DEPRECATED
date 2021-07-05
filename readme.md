@@ -141,9 +141,3 @@ Then, on github, go into your repo settings->pages and choose `gh-pages` as the 
 - `AssetLoader`: Loads your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
 - `M4Scene`: Acts as the basic building block for your custom scenes. An `M4Scene` is an instance of a `Three.Scene` with added behavior. M4Scenes come with lights and a camera by default. Extend this with your own scenes.
 - `M4Prefab`: Acts as the basic building block for any scene object. Has a `tick` method which will be called every frame if `isAnimatable` is set to true on the prefab. The `tick()` method receives a float value `deltaTime` which indicates how much time passed between frames. We don't have a fixedUpdate equivalent.
-
-## FAQ
-#### How do I add M4NG0 to an existing project?
-This is doable, but a bit of work.
-- Bring over the whole src folder, static folder, and webpack config.
-- Then add a canvas to your html with the id: `m4ng0-canvas`.
