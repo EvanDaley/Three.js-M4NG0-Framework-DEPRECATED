@@ -59,11 +59,11 @@ npm run dev
 ```
 At this point, a lite-server should be serving the project locally on port 8080.
 
-While the server is running, code will immediately be reflected in the browser.
+While the server is running, code changes will immediately be reflected in the browser.
 
 ## First Steps - Development
 Next we'll create a new prefab, with `src/prefabs/Robot.js` as an example:
-- In Robot.js we set some defaults in the constructor. `this.isAnimatable = true` tells the system to call `tick` on this class every frame.
+- In Robot.js we set some defaults in the constructor. Setting `this.isAnimatable = true` tells the system to call `tick` on this class every frame.
 - We specify our required assets `models/Robot.glb`
 - Then, we define our start method which will be called after the static assets have been loaded.
 
@@ -73,7 +73,7 @@ Lets make a new prefab
 - Try loading a different model (perhaps `models/Flamingo.glb`)
 - Reposition the model in the `start` function
 
-Now you should have:
+Now you should have something like:
 ```
 import { M4Prefab } from "../M4NG0/Objects/M4Prefab"
 
