@@ -18,7 +18,9 @@ class SceneListController {
     this.scenes = []
     const keys = Object.keys(SceneList.default)
     for (const key of keys) {
-      const actualScene = SceneList.default[key]
+      const sceneClass = SceneList.default[key]
+      const actualScene = new sceneClass()
+
       this.scenes.push(actualScene)
     }
   }

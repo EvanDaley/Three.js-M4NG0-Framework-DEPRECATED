@@ -35,4 +35,4 @@ class CustomScene1 extends M4Scene {
   }
 }
 
-export default new CustomScene1()
+export default CustomScene1
