@@ -116,7 +116,7 @@ Now lets import that into a scene.
 ```
 And voila, we have a Flamingo in our scene!
 
-![portal image](flamingo-example.jpg)
+![flamingo-example](flamingo-example.png)
 [You should now see a flamingo!]
 
 The process of loading the mesh and adding it to the scene was handled by the AssetLoader and Orchestrator. If you need to hook into that process to interact with the mesh data, you can add a processImportData() method on whatever prefab needs it. See `M4Prefab` for an example.
