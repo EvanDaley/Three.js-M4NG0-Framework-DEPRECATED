@@ -27,29 +27,35 @@ Okay, lets dive in. I've got a detailed "first steps" section below - but I sugg
 
 Heres what you need to know:
 
-On page load, we create an instance of `Orchestrator`. Orchestrator keeps track of events, and helps us transition between our scenes. 
+On page load, we create an instance of `Orchestrator`. Orchestrator sets up our renderer and all of the helpers like our asset loader and scene manager.
 
 As soon as its ready, `Orchestrator` kicks off the process of loading up the static assets like 3d models and textures that are referenced by your scenes. This will ONLY pull assets that are referenced by Scenes/Prefabs. Every non-primitive object should be defined as a prefab and imported into a scene.
 
 Once everything has finished loading in the background, `Orchestrator` will call the async function `start` on the first scene.
 
-To add functionality to your prefabs, set isAnimatable to true in the constructor, and add a `tick(delta)` method (this behaves similarly to Unity's `OnUpdate`).
-
 Scenes are defined by you! All scenes should extend the base class M4Scene. More on that later.
 
-### Classes of note
-Orchestrator - Creates everything. Manages your scenes. Keeps track of events.
+### Classes of Note
+Orchestrator 
+- Creates everything. Manages your scenes. Keeps track of events.
 
-AssetLoader - Loads your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
+AssetLoader 
+- Loads your assets asynchronously. Maintains them in an array, so you can reuse them in any scenes.
 
-M4Scene - Acts as the basic building block for your custom scenes. Should be extended for your own scenes.
+M4Scene 
+- Acts as the basic building block for your custom scenes. Should be extended for your own scenes.
+- An `M4Scene` is an instance of a `Three.Scene` with added behavior.
+
+M4Prefab 
+- This is the class you should extend to declare any kind of object that has behavior.
+- To add animation to your prefabs, set isAnimatable to true in the constructor, and add a `tick(delta)` method (M4NG0's equivalent of `OnUpdate`). Tick passes a "delta" which tells you how much time passed between frames. We don't have a fixedUpdate equivalent.
 
 ### Assets
 If you have any models or textures to load, put them in 
 - `./static/models`
 - `./static/textures`
 
-Assets in those folders will be loaded asynchronously on page load by the AssetLoader class. Note that we only load assets that are referened by prefabs!
+Assets in those folders will be pulled in by the AssetLoader class. Note that we only load assets that are referened by prefabs!
 
 ### Prefabs
 Prefabs are custom classes that define the form and function of an object. They specify which assets to pull and how those assets should behave in the scene. Everything is a prefab. 
@@ -75,9 +81,9 @@ At this point, a lite-server should be serving the project locally on port 8080.
 While the server is running, code will immediately be reflected in the browser.
 
 ## First Steps - Development
-TODO - Make an update to a scene. Swap out an object.
+TODO - Explain this better. Make an update to a scene. Swap out an object. Explore the prefabs folder.
 
-TODO - Talk about building scenes.
+TODO - Lets talk about creating new scenes.
 
 TODO - Make a new scene.
 
