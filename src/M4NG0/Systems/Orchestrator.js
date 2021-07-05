@@ -24,7 +24,7 @@ class Orchestrator {
     this.gameLoop = new Loop(this)
     this.resizer = new Resizer(this.canvasContainer, this.getActiveCamera(), this.renderer)
 
-    this.canvasContainer.append(this.renderer.domElement);
+    this.canvasContainer.append(this.getCanvas());
     this.render()
   }
 
@@ -47,6 +47,10 @@ class Orchestrator {
 
   stop() {
     this.gameLoop.stop();
+  }
+
+  getCanvas() {
+    return this.renderer.domElement
   }
 
   getScenes() {

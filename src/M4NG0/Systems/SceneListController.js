@@ -19,7 +19,7 @@ class SceneListController {
     const keys = Object.keys(SceneList.default)
     for (const key of keys) {
       const sceneClass = SceneList.default[key]
-      const actualScene = new sceneClass()
+      const actualScene = new sceneClass(this.orchestrator)
 
       this.scenes.push(actualScene)
     }

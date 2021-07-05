@@ -8,12 +8,15 @@ import { Color, Scene } from 'three';
 import { createCamera } from './../SimpleFactories/perspectiveCamera.js';
 
 class M4Scene extends Scene {
-    constructor() {
+    constructor(orchestrator) {
         super()
 
+        this.orchestrator = orchestrator
         this.camera = this.createCamera()
         this.setDefaults()
         this.prefabs = []
+
+        console.log(orchestrator)
     }
 
     // You can override this
