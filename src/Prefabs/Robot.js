@@ -7,20 +7,17 @@ import { M4Prefab } from "../M4NG0/Objects/M4Prefab"
 import { AnimationMixer, MathUtils } from 'three'
 
 class Robot extends M4Prefab {
-  requiredAssets() {
-    return [
-      {
-        type: 'model',
-        filePath: 'models/Robot.glb',
-      }
-    ]
-  }
-  
   constructor() {
     super()
-
-    this.radiansPerSecond = MathUtils.degToRad(-3)
     this.isAnimatable = true
+    this.radiansPerSecond = MathUtils.degToRad(-3)
+  }
+
+  requiredAssets() {
+    return [{
+      type: 'model',
+      filePath: 'models/Robot.glb',
+    }]
   }
 
   tick(delta) {

@@ -16,15 +16,13 @@ class CustomScene1 extends M4Scene {
     this.background = new Color('#21282a')
   }
 
-  // Here we specify which prefabs we'll use.
-  prefabs() {
-    this.robot = new Robot()
-    this.particleEffect = new ParticleEffect()
-
-    return [
-      this.robot,
-      this.particleEffect
-    ]
+  blueprint() {
+    return {
+      prefabs: [
+        Robot,
+        ParticleEffect
+      ]
+    }
   }
 
   start() {
@@ -32,9 +30,6 @@ class CustomScene1 extends M4Scene {
 
     this.add(ambientLight)
     this.add(mainLight)
-
-    this.add(this.robot)
-    this.add(this.particleEffect)
 
     console.log('scene', this)
   }

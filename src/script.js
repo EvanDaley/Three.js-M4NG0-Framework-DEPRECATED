@@ -6,6 +6,8 @@ async function main() {
   const orchestrator = new Orchestrator(canvasContainer)
   await orchestrator.init()
   orchestrator.start()
+
+  
 }
 
 // Run main and display any async errors from the world.init() function.
