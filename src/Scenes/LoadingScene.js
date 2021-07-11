@@ -6,7 +6,7 @@
 import { Color } from "three"
 import { M4Scene } from "../M4NG0/Objects/M4Scene"
 
-const MIN_DURATION = .7
+const MIN_DURATION = 3.7
 
 class LoadingScene extends M4Scene {
   setDefaults() {

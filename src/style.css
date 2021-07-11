@@ -1,100 +1,64 @@
+/*  TEMP  */
+
+@font-face {
+  font-family: 'Sucrose Bold Two';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/sucrose.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IM Fell French Canon Pro';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/im-fell-french-canon-pro.woff2') format('woff2');
+}
+
 * {
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    overflow: hidden;
-    font-size: 12px;
-    /* Decent options: Courier New, Arial, Verdana, Helvetica */
-    font-family: 'Helvetica';
-    color: white;
-    height: 100vh;
+body {
+  margin: 0;
 }
 
-#m4ng0-canvas-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #11181a;
+header {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/mountain-range.jpg) no-repeat;
+  padding-top: 61.93333333%;
+  background-size: cover;
+  font-family: 'Sucrose Bold Two';
 }
 
-.html-content-container {
-    pointer-events: none;
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-content: center;
+header img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45.8%;
 }
 
-.scene-one-content {
-    display: flex;
-    gap: 5em;
-    width: 100%;
-    padding-top: 3em;
-    position: relative;
+header h1 {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  font-size: 12vw;
+  line-height: .8;
+  margin-top: 0;
+  text-align: center;
 }
 
-.scene-one-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: 1px solid white;
-    transform: scaleX(1);
+header h1 span {
+  display: block;
+  font-size: 8.75vw;
 }
 
-h1 {
-    font-size: 4rem;
-    width: 50vw;
-    line-height: 97%;
-    text-align: right;
+main {
+  background: #fff;
+  position: relative;
+  border: 1px solid #fff;
+  font-family: 'IM Fell French Canon Pro';
+  font-size: 1.4rem;
+  padding: 2rem 25%;
+  line-height: 1.6;
 }
 
-h1, .subheading {
-    /* pointer-events: visiblePainted; */
-    flex-basis: 0;
-    flex-grow: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-}
-
-.subheading {
-    /* padding: 10px; */
-    font-size: 1.4rem;
-    width: 40vw;
-}
-
-.progress {
-    margin-top: 10px;
-    width: 90%;
-    height: 16px;
-    background: none;
-    border-style: solid;
-    border-radius: 3px;
-    border-width: thin;
-    border-color: white;
-    overflow: hidden;
-}
-
-.progress .progress-bar {
-    display: block;
-    height: 100%;
-    background: linear-gradient(90deg, #ffd33d, #ea4aaa 17%, #b34bff 34%, #01feff 51%, #ffd33d 68%, #ea4aaa 85%, #b34bff);
-    background-size: 300% 100%;
-    animation: progress-animation 2s linear infinite;
-}
-
-@keyframes progress-animation {
-    0% {
-        background-position: 100%;
-    }
-    100% {
-        background-position: 0;
-    }
+@media all and (max-width: 400px) {
+  main {
+    padding: 2rem;
+  }
 }

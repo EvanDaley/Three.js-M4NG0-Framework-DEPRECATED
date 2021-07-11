@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  overflow: hidden;
+  font-size: 12px;
+  /* Decent options: Courier New, Arial, Verdana, Helvetica */
+  font-family: 'Helvetica';
+  color: white;
+  height: 100vh;
+}
+
+#m4ng0-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #11181a;
+}
+
+.html-content-container {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+/* LOADING SCENE */
+
+.loading-scene-content {
+  color: red;
+  /* clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); */
+}
+
+.html-content-container .loading-scene-content {
+  display: flex;
+  gap: 5em;
+  width: 100%;
+  padding-top: 3em;
+  position: relative;
+}
+
+/* CustomScene1 */
+
+.scene-one-content {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.html-content-container .scene-one-content {
+  display: flex;
+  gap: 5em;
+  width: 100%;
+  padding-top: 3em;
+  position: relative;
+}
+
+.html-content-container .scene-one-content h1 {
+  font-size: 4rem;
+  width: 50vw;
+  line-height: 97%;
+  text-align: right;
+}
+
+.html-content-container .scene-one-content h1, .subheading {
+  /* pointer-events: visiblePainted; */
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.html-content-container .scene-one-content .subheading {
+  /* padding: 10px; */
+  font-size: 1.4rem;
+  width: 40vw;
+}
