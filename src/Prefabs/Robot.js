@@ -23,8 +23,6 @@ class Robot extends M4Prefab {
   tick(delta) {
     this.rotation.x += this.radiansPerSecond * delta
     this.rotation.y += this.radiansPerSecond * delta
-
-    console.log('here')
   }
 
   start() {

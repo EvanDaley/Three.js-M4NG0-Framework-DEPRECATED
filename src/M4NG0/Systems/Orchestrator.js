@@ -22,7 +22,7 @@ class Orchestrator {
     this.sceneListController = new SceneListController(this)
     this.renderer = new M4Renderer()
     this.gameLoop = new Loop(this)
-    this.resizer = new Resizer(this.canvasContainer, this.getActiveCamera(), this.renderer)
+    this.resizer = new Resizer(this, this.canvasContainer, this.renderer)
 
     this.canvasContainer.append(this.getCanvas());
     this.render()
@@ -52,6 +52,7 @@ class Orchestrator {
 
   switchToSceneUsingIndex(sceneIndex) {
     this.sceneListController.setCurrentSceneIndex(sceneIndex)
+    this.gameLoop.gatherUpdatables()
   }
 
   getCanvas() {
@@ -69,6 +70,7 @@ class Orchestrator {
   getActiveCamera() {
     return this.getCurrentScene().camera
   }
+  
 }
 
 export { Orchestrator }

@@ -1,11 +1,12 @@
 /* 
   LoadingScene
+  Proceed after assets have loaded or MIN_DURATION has passed, whichever comes last
 */
 
 import { Color } from "three"
 import { M4Scene } from "../M4NG0/Objects/M4Scene"
 
-const MIN_DURATION_MILLIS = 1000 * 2
+const MIN_DURATION = .7
 
 class LoadingScene extends M4Scene {
   setDefaults() {
@@ -20,7 +21,7 @@ class LoadingScene extends M4Scene {
         this.enoughTimeHasElapsed = true
         this.proceedWhenReady()
       },
-      MIN_DURATION_MILLIS
+      MIN_DURATION * 1000
     )
   }
 
@@ -29,7 +30,6 @@ class LoadingScene extends M4Scene {
     this.proceedWhenReady()
   }
 
-  // Proceed after assets have loaded or MIN_DURATION_MILLIS has passed, whichever comes last
   proceedWhenReady() {
     if (this.hasFinishedLoading && this.enoughTimeHasElapsed) {
       this.orchestrator.switchToSceneUsingIndex(1)
