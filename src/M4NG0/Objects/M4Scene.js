@@ -27,8 +27,6 @@ class M4Scene extends Scene {
         this.camera = this.createCamera()
         this.setDefaults()
         this.prefabs = []
-
-        console.log(orchestrator)
     }
 
     // Set any properties on the scene. https://threejs.org/docs/#api/en/scenes/Scene

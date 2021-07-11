@@ -49,6 +49,10 @@ class Orchestrator {
     this.gameLoop.stop();
   }
 
+  switchToSceneUsingIndex(sceneIndex) {
+    this.sceneListController.setCurrentSceneIndex(sceneIndex)
+  }
+
   getCanvas() {
     return this.renderer.domElement
   }

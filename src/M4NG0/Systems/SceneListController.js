@@ -37,6 +37,10 @@ class SceneListController {
     return this.scenes[this.currentSceneIndex]
   }
 
+  setCurrentSceneIndex(index) {
+    this.currentSceneIndex = index
+  }
+
   async start() {
     this.getCurrentScene().start()
   }

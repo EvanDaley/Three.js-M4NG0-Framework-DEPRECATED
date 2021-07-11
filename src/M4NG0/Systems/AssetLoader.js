@@ -20,6 +20,7 @@ class AssetLoader {
     this.orchestrator = orchestrator
     this.loader = new GLTFLoader()
     this.instantiatedObjects = []
+    this.debug = false
   }
 
   // Create an array of static asset requirements (as promises), and handle them all in parallel.
@@ -37,7 +38,8 @@ class AssetLoader {
 
   // This is a promise to import and process one asset. Add it to the scene that imported it and save a reference.
   async loadAndProcessAsset(requiredAssetDefinition) {
-    console.log("Loading asset", requiredAssetDefinition)
+    if (this.debug) console.log("Loading asset", requiredAssetDefinition)
+
     const data = await this.loader.loadAsync(requiredAssetDefinition.filePath)
 
     // Let the prefab decide how to process the data. We define a processor function on the base class, but any prefab can override it.
@@ -47,7 +49,7 @@ class AssetLoader {
     this.addReadyPrefabToScene(requiredAssetDefinition.scene, requiredAssetDefinition.prefab)
 
     this.instantiatedObjects.push(requiredAssetDefinition.prefab)
-    console.log("Finished loading asset", requiredAssetDefinition)
+    if (this.debug) console.log("Finished loading asset", requiredAssetDefinition)
   }
 
   // List all of the static assets that are used by prefabs from getPrefabList
@@ -65,8 +67,8 @@ class AssetLoader {
             requiredAssetDefinitions.push(definition)
           })
         } else {
-          // If a prefab does not have any static assets to load, let's add it to the scene immediately.
-          // The other prefabs will be added later on after their promises execute.
+          // If a prefab does NOT have any static assets to load, we can add it to the scene immediately.
+          // Pefabs with assets will be added later on after their promises execute.
           this.addReadyPrefabToScene(prefab.scene, prefab)
         }
       })
