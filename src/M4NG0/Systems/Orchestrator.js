@@ -29,8 +29,9 @@ class Orchestrator {
   }
 
   async init() {
+    await this.sceneListController.fireCreateEvent()
     await this.assetLoader.loadStaticAssets()
-    await this.sceneListController.start()
+    await this.sceneListController.fireActivateEvent()
     this.gameLoop.gatherUpdatables()
   }
 

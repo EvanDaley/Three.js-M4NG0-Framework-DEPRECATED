@@ -47,7 +47,10 @@ class M4Scene extends Scene {
     }
 
     // This is called once everything is loaded. You should override this.
-    start() {}
+    onCreate() {}
+
+    // This is called when this scene becomes the active scene (switched to from another scene)
+    onActivate() {}
 }
 
 M4Scene.prototype.isM4Scene = true

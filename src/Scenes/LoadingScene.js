@@ -1,34 +1,35 @@
 /* 
   LoadingScene
-  Copy this file to make your own scenes. 
-  The methods are explained in the parent class.
 */
 
 import { Color } from "three"
 import { M4Scene } from "../M4NG0/Objects/M4Scene"
-import { createLights } from "../M4NG0/SimpleFactories/createLights"
+
+const MIN_DURATION_MILLIS = 1000 * 2
 
 class LoadingScene extends M4Scene {
-  constructor(orchestrator) {
-    super(orchestrator)
+  setDefaults() {
+    this.background = new Color('#F5F5F5')
     this.hasFinishedLoading = false
+    this.enoughTimeHasElapsed = false
+  }
 
+  onCreate() {
     setTimeout(
-      () => { this.enoughTimeHasElapsed = true; this.proceedWhenReady() },
-      1000
+      () => {
+        this.enoughTimeHasElapsed = true
+        this.proceedWhenReady()
+      },
+      MIN_DURATION_MILLIS
     )
   }
 
-  setDefaults() {
-    this.background = new Color('#F5F5F5')
-  }
-
-  start() {
+  onActivate() {
     this.hasFinishedLoading = true
     this.proceedWhenReady()
   }
 
-  // Proceed after loading is finished or 1 second has passed (whichever comes last)
+  // Proceed after assets have loaded or MIN_DURATION_MILLIS has passed, whichever comes last
   proceedWhenReady() {
     if (this.hasFinishedLoading && this.enoughTimeHasElapsed) {
       this.orchestrator.switchToSceneUsingIndex(1)

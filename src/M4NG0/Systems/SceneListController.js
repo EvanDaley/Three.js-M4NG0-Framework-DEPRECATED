@@ -39,10 +39,19 @@ class SceneListController {
 
   setCurrentSceneIndex(index) {
     this.currentSceneIndex = index
+    this.fireActivateEvent()
   }
 
-  async start() {
-    this.getCurrentScene().start()
+  // Notify all scenes that they have been created.
+  async fireCreateEvent() {
+    this.getScenes().forEach(scene => {
+      scene.onCreate()
+    })
+  }
+
+  // Notify the current scene that we switched to it.
+  async fireActivateEvent() {
+    this.getCurrentScene().onActivate()
   }
 }
 

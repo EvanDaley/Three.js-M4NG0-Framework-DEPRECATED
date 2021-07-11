@@ -25,7 +25,8 @@ class CustomScene1 extends M4Scene {
     }
   }
 
-  start() {
+  onActivate() {
+    console.log(this)
     createControls(this.camera, this.orchestrator.getCanvas())
 
     const { ambientLight, mainLight } = createLights()
