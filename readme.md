@@ -4,7 +4,7 @@
 [Photo shameless taken from images.indianexpress.com]
 
 # Live Demo
-See the live demo here: https://evandaley.github.io/Three.js-M4NG0-Framework/
+See the live demo here: https://evandaley.github.io/Three.js-M4NG0-Framework-DEPRECATED/
 
 ## Embrace the Mango:
 
